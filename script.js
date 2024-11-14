@@ -6,7 +6,12 @@ console.log('---------------------DEFAULT PARAMETERS-----------------------');
 
 const bookings = [];
 // We do the following in ES6: we give directly the values to the properties which is more nicer adn intuitive!
-const createBooking = (flightNum, numPassengers = 1, price = 199) => {
+const createBooking = (
+  flightNum,
+  numPassengers = 1,
+  // price can be calculated dynamically!
+  price = 199 * numPassengers
+) => {
   // const createBooking = (flightNum, numPassengers, price) => {
   // ES5 --------> but we don't use it anymore!----------------------------------
   // numPassengers = numPassengers || 1; // to assign the default values using || (OR operator). OR operator consider undefined as falsy value, that's why it goes to the next value and take that, when it is not a falsy value!
@@ -30,4 +35,7 @@ const createBooking = (flightNum, numPassengers = 1, price = 199) => {
 
 createBooking('LH123'); // takes the dafault values
 createBooking('LH123', 2, 800); // overwrite the default values
+createBooking('LH123', 2); // overwrite the default values
+createBooking('LH123', 5); // overwrite the default values
+
 console.log(bookings);
