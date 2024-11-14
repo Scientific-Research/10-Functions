@@ -42,3 +42,33 @@ createBooking('LH123', 5); // overwrite the default values
 createBooking('LH123', undefined, 1000); // overwrite the default values
 
 console.log(bookings);
+
+/* HOW PASSING ARGUMENTS WORK => Values vs. References */
+console.log('----HOW PASSING ARGUMENTS WORK => Values vs. References----');
+
+const flight = 'LH234';
+const jonas = {
+  name: 'Jonas Schmedtmann',
+  passport: 982375198456,
+};
+
+const checkIn = (flightNum, passenger) => {
+  flightNum = 'LH999';
+  passenger.name = 'Mr.' + passenger.name;
+
+  if (passenger.passport === 982375198456) {
+    alert('Checked in');
+  } else {
+    alert('Wrong passport!');
+  }
+};
+
+checkIn(flight, jonas);
+
+console.log(jonas); // {name: 'Mr.Jonas Schmedtmann', passport: 982375198456}
+console.log(flight); // LH234
+
+// Is the same as doing...
+const flightNum = flight; // flight is just a primitive type(a string) and flightNum is a COPY of original value and simply not the ORIGINAL value! flightNum is a complete different variable and has nothing to do with the flight variable which is defined outside of the function!
+
+const passenger = jonas; // we changed the passenger name and the jonas object was affected too! why that happened? 
