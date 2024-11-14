@@ -71,4 +71,6 @@ console.log(flight); // LH234
 // Is the same as doing...
 const flightNum = flight; // flight is just a primitive type(a string) and flightNum is a COPY of original value and simply not the ORIGINAL value! flightNum is a complete different variable and has nothing to do with the flight variable which is defined outside of the function!
 
-const passenger = jonas; // we changed the passenger name and the jonas object was affected too! why that happened? when we pass a reference type to a function, what is copied, is really just a reference to the object in heap memory, but the both points to the same object in the memory! that's why, when we are manipulating passenger object, is the same exactly as we manipulating the jonas object directly, because both of them points to the same object in the heap memory(both are the same object in the heap memory!)
+const passenger = jonas; // we changed the passenger name and the jonas object was affected too! why that happened? when we pass a reference type to a function, what is copied, is really just a reference to the object in heap memory, but the both points to the same object in the memory! that's why, when we are manipulating passenger object, is the same exactly as we manipulating the jonas object directly, because both of them points to the same object in the heap memory(both are the same object in the heap memory!) => what we change in the copy will happen in the original too! => WE HAVE TO BE AWARE OF THAT!!!!
+
+
