@@ -111,6 +111,7 @@ const transformer = (str, fn) => {
   console.log(`Transformed by: ${fn.name}`); // It gives us the name of the function => Transformed by: upperFirstWord
 };
 
+// BOTH upperFirstWord AND oneWord ARE CALLBACK FUNCTIONS, BECAUSE WE DON'T CALL THEM NOW, RATHER, THE JS WILL CALL THEM LATER BACK, THAT'S WHY THEY ARE CALLED CALL BACK FUNCTIONS! CALL THEM BACK(LATER) HAPPENS IN LINES 109(fn(str)) IN WHICH fn() CAN BE EITHER upperFirstWord OR oneWord GENERIC FUNCTIONS!
 transformer("Javascript is the best!", upperFirstWord);
 
 transformer("Javascript is the best!", oneWord);
@@ -119,3 +120,12 @@ Original string: Javascript is the best!
 Transformed string: javascriptisthebest!
 Transformed by: oneWord
 */
+
+// THIS IS EXACTLY THE SAME THAT WE HAD EARLIER WITH addEventListener() AS FOLLOWING:
+const high5 = () => {
+  console.log("👋"); // 👋 => as soon as we CLICK on the body, the high5 callback function will be called and we will see the waving hand on the console!
+};
+
+// addEventListener() which is high-order function is like transformer() and high5 is callback function like upperFirstWord or oneWord which will call back later by JS AS SOON AS WE CLICK ON THE BODY!
+
+document.body.addEventListener("click", high5);
