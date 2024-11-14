@@ -164,14 +164,31 @@ console.log("-----BACK TO this KEYWORD AND HOW CAN WE SET THAT MANUALLY-----");
 const lufthansa = {
   airline: "Lufthansa",
   iataCode: "LH",
-  booking: [],
+  bookings: [],
+
   // book: function () {}, OR NEW ONE AS FOLLOWING: book(flightNum, name){} without function word!
   book(flightNum, name) {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+    console.log(this.bookings);
   },
 };
 
 lufthansa.book(239, "Jonas Schmedtmann"); // Jonas Schmedtmann booked a seat on Lufthansa flight LH239
 lufthansa.book(635, "John Smith"); // John Smith booked a seat on Lufthansa flight LH635
+console.log(lufthansa);
+
+// AFTER SOME YEARS LUFTHANSA GROUP CREATED A NEW AIRLINE:
+const eurowings = {
+  name: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+// OR WE CAN USE THE FIRST ORDER FUNCTION INSTEAD OF COPY PASTE THE BOOK METHOD FROM THE FIRST OBJECT:
+const book = lufthansa.book; // THIS IS EQUAL WITH book(flightNum, name) {}
+book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
+// The book here is the regular book function and is not the book method anymore and in a regular function call, this keyword point to undefined!
+// IT MEANS THE this KEYWORD DEPENDS HOW IT IS CALLED: WHEN INSIDE AN OBJECT IS CALLED, POINTS TO THE OBJECT ITSELF, BUT WHEN INSIDE A REGULAR FUNCTION IS CALLED, IT POINTS TO THE UNDEFINED!
