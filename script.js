@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 /* -------------------------DEFAULT PARAMETERS---------------------------- */
-console.log('---------------------DEFAULT PARAMETERS-----------------------');
+console.log("---------------------DEFAULT PARAMETERS-----------------------");
 // Some parameters are set by default and we don't need to chnage them manually when we want to keep them!
 
 const bookings = [];
@@ -33,33 +33,33 @@ const createBooking = (
   bookings.push(booking);
 };
 
-createBooking('LH123'); // takes the dafault values
-createBooking('LH123', 2, 800); // overwrite the default values
-createBooking('LH123', 2); // overwrite the default values
-createBooking('LH123', 5); // overwrite the default values
+createBooking("LH123"); // takes the dafault values
+createBooking("LH123", 2, 800); // overwrite the default values
+createBooking("LH123", 2); // overwrite the default values
+createBooking("LH123", 5); // overwrite the default values
 
 // when we specify 'undefined', it will take our default value => in this case, it will take 1 as default value for number of passengers!
-createBooking('LH123', undefined, 1000); // overwrite the default values
+createBooking("LH123", undefined, 1000); // overwrite the default values
 
 console.log(bookings);
 
 /* HOW PASSING ARGUMENTS WORK => Values vs. References */
-console.log('----HOW PASSING ARGUMENTS WORK => Values vs. References----');
+console.log("----HOW PASSING ARGUMENTS WORK => Values vs. References----");
 
-const flight = 'LH234';
+const flight = "LH234";
 const jonas = {
-  name: 'Jonas Schmedtmann',
+  name: "Jonas Schmedtmann",
   passport: 982375198456,
 };
 
 const checkIn = (flightNum, passenger) => {
-  flightNum = 'LH999';
-  passenger.name = 'Mr.' + passenger.name;
+  flightNum = "LH999";
+  passenger.name = "Mr." + passenger.name;
 
   if (passenger.passport === 982375198456) {
-    alert('Checked in');
+    alert("Checked in");
   } else {
-    alert('Wrong passport!');
+    alert("Wrong passport!");
   }
 };
 
@@ -69,8 +69,18 @@ console.log(jonas); // {name: 'Mr.Jonas Schmedtmann', passport: 982375198456}
 console.log(flight); // LH234
 
 // Is the same as doing...
-const flightNum = flight; // flight is just a primitive type(a string) and flightNum is a COPY of original value and simply not the ORIGINAL value! flightNum is a complete different variable and has nothing to do with the flight variable which is defined outside of the function!
+// const flightNum = flight; // flight is just a primitive type(a string) and flightNum is a COPY of original value and simply not the ORIGINAL value! flightNum is a complete different variable and has nothing to do with the flight variable which is defined outside of the function!
 
-const passenger = jonas; // we changed the passenger name and the jonas object was affected too! why that happened? when we pass a reference type to a function, what is copied, is really just a reference to the object in heap memory, but the both points to the same object in the memory! that's why, when we are manipulating passenger object, is the same exactly as we manipulating the jonas object directly, because both of them points to the same object in the heap memory(both are the same object in the heap memory!) => what we change in the copy will happen in the original too! => WE HAVE TO BE AWARE OF THAT!!!!
+// const passenger = jonas; // we changed the passenger name and the jonas object was affected too! why that happened? when we pass a reference type to a function, what is copied, is really just a reference to the object in heap memory, but the both points to the same object in the memory! that's why, when we are manipulating passenger object, is the same exactly as we manipulating the jonas object directly, because both of them points to the same object in the heap memory(both are the same object in the heap memory!) => what we change in the copy will happen in the original too! => WE HAVE TO BE AWARE OF THAT!!!!
 
+// --------------------------------------A REAL EXAMPLE---------------------------------
+console.log("---------------------A MORE REAL EXAMPLE-----------------------");
 
+const newPassport = (person) => {
+  person.passport = Math.trunc(Math.random() * 1000000000000000);
+  console.log(person);
+};
+
+console.log(newPassport(jonas)); // Both are pointing to the same object in the heap memory when the jonas object is copied to the person object, taht's why every change in the person object will affect in the jonas object!
+
+console.log(checkIn(flight, jonas)); // therefore, we have now jonas object with a different passport number and when we send it to the function will not adapt to the old passport number, therefore, the alert will gives us the 'Wrong passport!' message!
