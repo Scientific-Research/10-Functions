@@ -95,6 +95,7 @@ console.log("-----------------HIGHER ORDER FUNCTION--------------------------");
 // CREATING TWO GENERIC FUNCTIONS:
 const oneWord = (str) => {
   return str.replaceAll(" ", "").toLowerCase();
+  // return str.replace(/ /g, "").toLowerCase(); is the same but with regular expression!
 };
 
 const upperFirstWord = (str) => {
@@ -104,8 +105,17 @@ const upperFirstWord = (str) => {
 
 // CREATING A HIGH-ORDER FUNCTION, because one of the parameter which it takes is a function(fn):
 const transformer = (str, fn) => {
-  console.log(`Original string: ${str}`);
-  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Original string: ${str}`); // Original string: Javascript is the best!
+  console.log(`Transformed string: ${fn(str)}`); // Transformed string: JAVASCRIPT is the best!
+
+  console.log(`Transformed by: ${fn.name}`); // It gives us the name of the function => Transformed by: upperFirstWord
 };
 
 transformer("Javascript is the best!", upperFirstWord);
+
+transformer("Javascript is the best!", oneWord);
+/* 
+Original string: Javascript is the best!
+Transformed string: javascriptisthebest!
+Transformed by: oneWord
+*/
