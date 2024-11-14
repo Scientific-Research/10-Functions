@@ -38,4 +38,7 @@ createBooking('LH123', 2, 800); // overwrite the default values
 createBooking('LH123', 2); // overwrite the default values
 createBooking('LH123', 5); // overwrite the default values
 
+// when we specify 'undefined', it will take our default value => in this case, it will take 1 as default value for number of passengers!
+createBooking('LH123', undefined, 1000); // overwrite the default values
+
 console.log(bookings);
