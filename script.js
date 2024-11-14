@@ -129,3 +129,9 @@ const high5 = () => {
 // addEventListener() which is high-order function is like transformer() and high5 is callback function like upperFirstWord or oneWord which will call back later by JS AS SOON AS WE CLICK ON THE BODY!
 
 document.body.addEventListener("click", high5);
+
+// ANOTHER EXAMPLE OF CALLBACK FUNCTION USING foreach() loop:
+// ["Jonas", "Martha", "Adam"].forEach(high5);
+["Jonas", "Martha", "Adam"].forEach(high5); // 3 👋 three times waving due to three element in the array! => for each of the element in the array, high5 callback function will be called!
+
+// NOTE: JS uses callbacks all the time!
