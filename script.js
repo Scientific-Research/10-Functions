@@ -141,6 +141,7 @@ console.log(
   "OPPOSITE OF THE CALLBACK FUNCTION => FUNCTION RETURNING NEW FUNCTION"
 );
 
+// BELOW, ONE ARROW FUNCTION RETURNS ANOTHER ARROW FUNCTION:
 const greet = (greeting) => {
   // return a new arrow function
   return (name) => {
