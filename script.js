@@ -135,3 +135,23 @@ document.body.addEventListener("click", high5);
 ["Jonas", "Martha", "Adam"].forEach(high5); // 3 👋 three times waving due to three element in the array! => for each of the element in the array, high5 callback function will be called!
 
 // NOTE: JS uses callbacks all the time!
+
+// LET'S DO THE OPPOSITE OF THE CALLBACK FUNCTION WHICH IS FUNCTION RETURNING FUNCTION:
+console.log(
+  "OPPOSITE OF THE CALLBACK FUNCTION => FUNCTION RETURNING NEW FUNCTION"
+);
+
+const greet = (greeting) => {
+  // return a new arrow function
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+// Our first function here(greet) returns a new function which is stored in greeterHey variable and then we can call this variable containing the new function with different parameters!
+const greeterHey = greet("Hey");
+greeterHey("Jonas"); // Hey Jonas
+greeterHey("Steven"); // Hey Steven
+
+// OR CALL ALL OF THEM IN ONE GO:
+greet("Hallo")("Jonas");
