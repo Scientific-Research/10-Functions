@@ -156,3 +156,22 @@ greeterHey("Steven"); // Hey Steven
 
 // OR CALL ALL OF THEM IN ONE GO:
 greet("Hallo")("Jonas");
+
+// --------BACK TO this KEYWORD AND HOW CAN WE SET THAT MANUALLY-------
+console.log("-----BACK TO this KEYWORD AND HOW CAN WE SET THAT MANUALLY-----");
+
+// Defining a new object:
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  booking: [],
+  // book: function () {}, OR NEW ONE AS FOLLOWING: book(flightNum, name){} without function word!
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+  },
+};
+
+lufthansa.book(239, "Jonas Schmedtmann"); // Jonas Schmedtmann booked a seat on Lufthansa flight LH239
+lufthansa.book(635, "John Smith"); // John Smith booked a seat on Lufthansa flight LH635
