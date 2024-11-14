@@ -84,3 +84,6 @@ const newPassport = (person) => {
 console.log(newPassport(jonas)); // Both are pointing to the same object in the heap memory when the jonas object is copied to the person object, taht's why every change in the person object will affect in the jonas object!
 
 console.log(checkIn(flight, jonas)); // therefore, we have now jonas object with a different passport number and when we send it to the function will not adapt to the old passport number, therefore, the alert will gives us the 'Wrong passport!' message!
+
+/* IS THERE ANY PASS BY REFERENCE OR PASS BY VALUE IN JS? */
+// THERE IS ONLY PASS BY VALUE IN JS AND THERE IS NO PASS BY REFERENCE IN JS although we pass a reference to the function but this reference is also a VALUE which contains the memory address of the object! we pass A reference to the function but we do not pass BY reference and this is a VERY IMPORTANT DISTINCTION which happen in OTHER PROGRAMMING LANGUAGES LIKE C++!
