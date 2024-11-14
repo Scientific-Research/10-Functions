@@ -57,9 +57,9 @@ const checkIn = (flightNum, passenger) => {
   passenger.name = "Mr." + passenger.name;
 
   if (passenger.passport === 982375198456) {
-    alert("Checked in");
+    // alert("Checked in"); commented out to avoid of disturbing
   } else {
-    alert("Wrong passport!");
+    // alert("Wrong passport!"); commented out to avoid of disturbing
   }
 };
 
@@ -87,3 +87,25 @@ console.log(checkIn(flight, jonas)); // therefore, we have now jonas object with
 
 /* IS THERE ANY PASS BY REFERENCE OR PASS BY VALUE IN JS? */
 // THERE IS ONLY PASS BY VALUE IN JS AND THERE IS NO PASS BY REFERENCE IN JS although we pass a reference to the function but this reference is also a VALUE which contains the memory address of the object! we pass A reference to the function but we do not pass BY reference and this is a VERY IMPORTANT DISTINCTION which happen in OTHER PROGRAMMING LANGUAGES LIKE C++!
+
+/* ---------------------------HIGHER ORDER FUNCTION:---------------------------------- */
+console.log("-----------------HIGHER ORDER FUNCTION--------------------------");
+/* We create a function that accepts other function as input: */
+
+// CREATING TWO GENERIC FUNCTIONS:
+const oneWord = (str) => {
+  return str.replaceAll(" ", "").toLowerCase();
+};
+
+const upperFirstWord = (str) => {
+  const [first, ...others] = str.split(" "); // REST operator and Split operator!
+  return [first.toUpperCase(), ...others].join(" "); // REST operator and join() operator!
+};
+
+// CREATING A HIGH-ORDER FUNCTION, because one of the parameter which it takes is a function(fn):
+const transformer = (str, fn) => {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+};
+
+transformer("Javascript is the best!", upperFirstWord);
