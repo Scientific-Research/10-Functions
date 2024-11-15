@@ -317,3 +317,20 @@ const addVAT = addTax.bind(null, 23); // we give here the rate to the addTax fun
 // addVAT = value => value + value * 0.23
 
 console.log(addVAT(100)); // 123 // we give here the value to the addTax function
+
+console.log("REWRITING ABOVE FUNCTION WITH FUNCTION RETURN ANOTHER FUNCTION:");
+
+// BELOW, ONE ARROW FUNCTION RETURNS ANOTHER ARROW FUNCTION:
+const addTax_1 = (rate) => {
+  // return a new arrow function
+  return (value) => {
+    return value + (value * rate) / 100;
+  };
+};
+
+// Our first function here(addTax_1) returns a new function which is stored in addVAT_1 variable and then we can call this variable containing the new function with different parameters!
+const addVAT_1 = addTax_1(23);
+console.log(addVAT_1(100)); // 123
+
+// OR CALL ALL OF THEM IN ONE GO:
+console.log(addTax_1(23)(100)); // 123
