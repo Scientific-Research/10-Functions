@@ -331,6 +331,7 @@ const addTax_1 = (rate) => {
 // Our first function here(addTax_1) returns a new function which is stored in addVAT_1 variable and then we can call this variable containing the new function with different parameters!
 const addVAT_1 = addTax_1(23);
 console.log(addVAT_1(100)); // 123
+console.log(addVAT_1(23)); // 28.29
 
 // OR CALL ALL OF THEM IN ONE GO:
 console.log(addTax_1(23)(100)); // 123
