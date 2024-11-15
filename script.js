@@ -182,13 +182,40 @@ console.log(lufthansa);
 
 // AFTER SOME YEARS LUFTHANSA GROUP CREATED A NEW AIRLINE:
 const eurowings = {
-  name: "Eurowings",
+  airline: "Eurowings",
   iataCode: "EW",
   bookings: [],
 };
 
 // OR WE CAN USE THE FIRST ORDER FUNCTION INSTEAD OF COPY PASTE THE BOOK METHOD FROM THE FIRST OBJECT:
 const book = lufthansa.book; // THIS IS EQUAL WITH book(flightNum, name) {}
-book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
+
+// THIS WILL NOT WORK -  WE USE call() to solve this problem - ist unten:
+// book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
 // The book here is the regular book function and is not the book method anymore and in a regular function call, this keyword point to undefined!
 // IT MEANS THE this KEYWORD DEPENDS HOW IT IS CALLED: WHEN INSIDE AN OBJECT IS CALLED, POINTS TO THE OBJECT ITSELF, BUT WHEN INSIDE A REGULAR FUNCTION IS CALLED, IT POINTS TO THE UNDEFINED!
+
+// HOW TO SAY TO JS, WHEN I WANT TO BOOK A FLIGHT WITH LUFTHANSA, this KEYWORD REFER TO LAUFTHANSA OBJECT AND WHEN I WANT TO BOOK A FLIGHT WITH EUROWINGS, this KEYWORD REFERS TO THE EUROWINGS OBJECT:
+// A function is an object and object has method, therefore a function can have method too and call method is one of them:
+// the first argument is this keyword points to which object: Lufthansa or eurowings
+// the second, third and other arguments are the rest arguments respectively!
+
+// THIS WILL NOT WORK -  WE USE call() to solve this problem - ist unten:
+// book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
+
+// MANUALLY MANUPULATING this KEYWORD USING call METHOD:
+book.call(eurowings, 23, "Sarah Williams");
+console.log(eurowings);
+
+book.call(lufthansa, 239, "Mary Cooper");
+console.log(lufthansa);
+
+// Creating a new airline Object and call the book function and its method which is call!
+const swiss = {
+  airline: "Swiss Air Lines",
+  iataCode: "LX",
+  bookings: [],
+};
+
+book.call(swiss, 583, "Mary Cooper");
+console.log(swiss);
