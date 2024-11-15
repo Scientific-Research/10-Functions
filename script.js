@@ -190,6 +190,7 @@ const eurowings = {
 // OR WE CAN USE THE FIRST ORDER FUNCTION INSTEAD OF COPY PASTE THE BOOK METHOD FROM THE FIRST OBJECT:
 const book = lufthansa.book; // THIS IS EQUAL WITH book(flightNum, name) {}
 
+console.log("---------------------------call method-----------------");
 // THIS WILL NOT WORK -  WE USE call() to solve this problem - ist unten:
 // book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
 // The book here is the regular book function and is not the book method anymore and in a regular function call, this keyword point to undefined!
@@ -218,4 +219,19 @@ const swiss = {
 };
 
 book.call(swiss, 583, "Mary Cooper");
+console.log(swiss);
+
+console.log("---------------------------apply method-----------------");
+// A similar method to the call method which is called APPLY METHOD:
+// APPLY METHOD does exactly the same like call method but it takes the arguments which come after OBJECT which is referring to this keyword as an ARRAY:
+const flightData = [583, "George Cooper"];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+// NOTE: BUT WE DON'T USE THE APPLY METHOD IN MODERN JS ANYMORE.
+// IN MODERN JS, WE USE STILL THE CALL METHOD PLUS SPREAD OPERATOR:
+// We use spread operator to unpack the data from array and these data are exactly the arguments that we need after first argumnet!
+
+book.call(swiss, ...flightData);
+// this is exactly equal with this one: book.call(swiss, 583, "George Cooper");
 console.log(swiss);
