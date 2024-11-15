@@ -259,3 +259,12 @@ bookLH(45, "Abdol Abdol");
 
 const bookLX = book.bind(swiss);
 bookLX(60, "Nosrat bolboli");
+
+/* WE CAN ACTUALLY TAKE THIS EVEN FURTHER: */
+// book.call(swiss, 583, "George Cooper"); // OUR OLD METHOD
+const bookEW23 = book.bind(eurowings, 23); // actually book method needs both flight number and name, but we can here make them separate and write the flight number here and the name in a separate function!
+// THE ADVANTAGE IS: WHEN BOTH HAVE THE SAME FLIGHT NUMBER OR USE THE SAME AIRLINE, WE DON'T NEED TO REPEAT THEM EVERY TIME FOR EVERY PERSON, RATHER, WE WRITE THE SIMILARITIES ONE TIME IN THE METHOD(book) AND WRITE JUST THE NAME OF THE PERSONS THAT ARE DIFFERENT IN SEPARATE FUNCTIONS!
+
+// AND ALSO WE CAN CHANGE THE PRESET FLIGHT NUMBER(23) IN ONE PLACE FOR EXAMPLE TO 12345 AND THEN IT WILL CHANGE FOR ALL PASSENGERS ACCORDINGLY!
+bookEW23("Jonas Schmedtmann");
+bookEW23("Martha Cooper");
