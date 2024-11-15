@@ -190,7 +190,7 @@ const eurowings = {
 // OR WE CAN USE THE FIRST ORDER FUNCTION INSTEAD OF COPY PASTE THE BOOK METHOD FROM THE FIRST OBJECT:
 const book = lufthansa.book; // THIS IS EQUAL WITH book(flightNum, name) {}
 
-console.log("---------------------------call method-----------------");
+console.log("---------------------------call Method-----------------");
 // THIS WILL NOT WORK -  WE USE call() to solve this problem - ist unten:
 // book(23, "Sarah Williams"); // Cannot read properties of undefined (reading 'airline') BECAUSE this KEYWORD POINTS TO undefined!
 // The book here is the regular book function and is not the book method anymore and in a regular function call, this keyword point to undefined!
@@ -221,7 +221,7 @@ const swiss = {
 book.call(swiss, 583, "Mary Cooper");
 console.log(swiss);
 
-console.log("---------------------------apply method-----------------");
+console.log("---------------------------apply Method-----------------");
 // A similar method to the call method which is called APPLY METHOD:
 // APPLY METHOD does exactly the same like call method but it takes the arguments which come after OBJECT which is referring to this keyword as an ARRAY:
 const flightData = [583, "George Cooper"];
@@ -235,3 +235,20 @@ console.log(swiss);
 book.call(swiss, ...flightData);
 // this is exactly equal with this one: book.call(swiss, 583, "George Cooper");
 console.log(swiss);
+
+console.log("---------------------------Bind Method-----------------");
+// Bind Method: is like call method, allow us to set manually the 'this' keyword for any function call!
+// But Bind method doesn't not call the function immediately, instead it returns a new function, where the 'this' keyword is bond! It set to whatever value we set to Bind method!
+
+// what we did already: book.call(eurowings, 23,'Sarah Williams');
+const bookEW = book.bind(eurowings); // bind method create a new function with 'this' keyword set to eurowings!
+// Bind Method WILL NOT CALL THE book FUNCTION, INSTEAD IT WILL RETURN A NEW FUNCTION IN WHICH THE 'this' KEYWORD IS ALWAYS SET TO THE eurowings!
+// The bookEW is a variable which contains the book function, therefore is called function!
+bookEW(23, "Steven Williams"); // This looks like a normal book function again! It includes already 'this' keyword and we no longer need to assign it again!
+
+// THE OUTPUT: Steven Williams booked a seat on Eurowings flight EW23
+console.log(eurowings);
+/* 
+{flight: 'EW23', name: 'Sarah Williams'}
+{flight: 'EW23', name: 'Steven Williams'}
+*/
