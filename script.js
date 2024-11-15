@@ -268,3 +268,27 @@ const bookEW23 = book.bind(eurowings, 23); // actually book method needs both fl
 // AND ALSO WE CAN CHANGE THE PRESET FLIGHT NUMBER(23) IN ONE PLACE FOR EXAMPLE TO 12345 AND THEN IT WILL CHANGE FOR ALL PASSENGERS ACCORDINGLY!
 bookEW23("Jonas Schmedtmann");
 bookEW23("Martha Cooper");
+
+console.log("-------------Combining addEventListener with bind()-------------");
+
+const buyNewPlane = document.querySelector(".buy");
+console.log(buyNewPlane.textContent);
+
+// With Event Listeneers
+lufthansa.planes = 300; // adding planes property to the lufthansa!
+// adding buyplane method to lufthansa!
+lufthansa.buyplane = function () {
+  console.log(this); // <button class="buy">Buy new plane 🛩</button>
+
+  // WHENEVER WE CLICK ON THE Buy new plane BUTTON, one plane will be added here!
+  this.planes++;
+  console.log(this.planes); // NaN
+};
+
+// buyNewPlane.addEventListener("click", lufthansa.buyplane);
+// We have to say to this function that, 'this' refers to the lufthansa and not to this: <button class="buy">Buy new plane 🛩</button>. How we can do that: we have to use the bind method as following: lufthansa as argument in bind method is 'this' keyword!
+buyNewPlane.addEventListener("click", lufthansa.buyplane.bind(lufthansa));
+
+// AND NOW AFTER CLICKING EACH TIME ON THE BUTTON, WE HAVE:
+// 281: {airline: 'Lufthansa', iataCode: 'LH', bookings: Array(4), planes: 300, book: ƒ, …}
+// 285: 301 302 303 304, ...
