@@ -252,3 +252,10 @@ console.log(eurowings);
 {flight: 'EW23', name: 'Sarah Williams'}
 {flight: 'EW23', name: 'Steven Williams'}
 */
+
+// WE CAN GO AHEAD AND DO THE SAME FOR ALL OTHER AIRLINES:
+const bookLH = book.bind(lufthansa);
+bookLH(45, "Abdol Abdol");
+
+const bookLX = book.bind(swiss);
+bookLX(60, "Nosrat bolboli");
