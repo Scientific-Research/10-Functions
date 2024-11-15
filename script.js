@@ -299,3 +299,21 @@ const addTax = (rate, value) => {
 };
 
 console.log(addTax(10, 200));
+
+// JUST AS A REMEMBER FROM THE PAST:
+/* 
+const bookEW = book.bind(eurowings);
+bookEW(23, "Steven Williams");
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23("Jonas Schmedtmann");
+*/
+
+// TO CREATE A FUNCTION FOR A TAX THAT WE USE ALL THE TIME(23% => VAT in PORTUGHAL, we can preset this value always for the products in Portugal as 23%):
+// WE DON'T CARE HERE ABOUT THE 'this' KEYWORD AT ALL, BECAUSE IT IS NOT THERE IN THE FUNCTION, THAT'S WHY WE WRITE NULL INSTEAD!
+const addVAT = addTax.bind(null, 23);
+
+// THE ABOVE STATEMENT IS LIKE THE FOLLOWING:
+// addVAT = value => value + value * 0.23
+
+console.log(addVAT(100)); // 123
