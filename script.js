@@ -292,3 +292,10 @@ buyNewPlane.addEventListener("click", lufthansa.buyplane.bind(lufthansa));
 // AND NOW AFTER CLICKING EACH TIME ON THE BUTTON, WE HAVE:
 // 281: {airline: 'Lufthansa', iataCode: 'LH', bookings: Array(4), planes: 300, book: ƒ, …}
 // 285: 301 302 303 304, ...
+
+console.log("-----------------Partial application---------");
+const addTax = (rate, value) => {
+  return value + (value * rate) / 100;
+};
+
+console.log(addTax(10, 200));
