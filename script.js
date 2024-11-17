@@ -402,3 +402,8 @@ const secureBooking = function () {
 
 const booker = secureBooking(); // and now, the booker would be a function as well!
 
+booker(); // 1 passengers!
+booker(); // 2 passengers!
+booker(); // 3 passengers!
+
+// A CLOSURE MAKES A FUNCTION REMEMBER ALL THE VARIABLES THAT EXISTED AT THE FUNCTION BIRTHPLACE WHICH IS secureBooking FUNCTION HERE!
