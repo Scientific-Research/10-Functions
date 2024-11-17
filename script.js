@@ -384,3 +384,21 @@ hello();
   console.log(isPrivateNew);
 }
 console.log(isNotPrivate);
+
+console.log("---------------------------CLOSURES----------------------------");
+
+// Closure happen automatically in some situations, but wod don't create it explixcitly and manually!
+
+// A FUNCTION CALLS ANOTHER FUNCTION => WHEN WE CALL secureBooking FUNCTION, IT WILL RETURN A NEW FUNCTION AND THIS FUNCTION WILL BE STORED IN booker FUNCTION! AND THEN THE booker WILL BE A FUNCTION AS WELL!
+const secureBooking = function () {
+  // we have to create doese situations:
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++; // to update this variable which is in mother function
+    console.log(`${passengerCount} passengers!`);
+  };
+};
+
+const booker = secureBooking(); // and now, the booker would be a function as well!
+
