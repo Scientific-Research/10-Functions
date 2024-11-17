@@ -357,4 +357,30 @@ runOnce(); // THIS IS NOT WHAT WE WANT, WE CAN RUN THIS AS MANY TIMES AS WE WANT
 // TO CALL IT IMMEDIATELY, WE CAN ADD OPEN AND CLOSE PARANTHESIS AT THE END => ().
 (function () {
   console.log("This will never run again!");
+  // ENCAPSULATION AND PRIVACY ARE VERY IMPORTANT WHICH ARE CONSIDERED IN IIFE FUNCTIONS!
+  // ALL THE DATA HERE ARE PRIVATE AND ARE ENCAPSULATED INSIDE THE SCOPE OF THE FUNCTION:
+  const isPrivate = 23;
+  console.log(isPrivate);
 })();
+
+const isPrivate = 10;
+console.log(isPrivate);
+
+// console.log(isPrivate); // isPrivate is not defined
+
+function hello() {
+  console.log("first");
+  const isPrivate = 1000;
+  var isNotPrivate = 56;
+  console.log(isPrivate);
+  console.log(isNotPrivate);
+}
+hello();
+
+// MODERN JS: WE DON'T NEED TOO MUCH IIFE ANYMORE, BECAUSE IN MODERN JS, WE CAN USE JUST TWO {} AND THEN WE HAVE THE PRIVACY FOR OUR DATA LIKE FOLLOWING:
+{
+  let isPrivateNew = 78; // Displaying the values of let are possible only inside the scope
+  var isNotPrivate = 7687; // it ignores the block essentially, therefore, we can display the values of var both inside and outside the scope!
+  console.log(isPrivateNew);
+}
+console.log(isNotPrivate);
