@@ -407,3 +407,9 @@ booker(); // 2 passengers!
 booker(); // 3 passengers!
 
 // A CLOSURE MAKES A FUNCTION REMEMBER ALL THE VARIABLES THAT EXISTED AT THE FUNCTION BIRTHPLACE WHICH IS secureBooking FUNCTION HERE!
+
+// A FUNCTION HAS ACCESS TO THE VARIABLE ENVIRONMENT(VE) OF THE EXECUTION CONTEXT IN WHICH IT WAS CREATED EVEN AFTER THAT EXECUTION CONTEXT IS GONE!
+
+//It means the booker function which is child of the mother function(secureBooking) has still access to the passengerCount variable(this variable is still alive), although the secureBooking fiúnction is already executed and gone(is dead already!)!
+
+// Closure: VE attached to the function, exactly as it was at the time and place the function was created!
