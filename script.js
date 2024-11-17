@@ -413,3 +413,7 @@ booker(); // 3 passengers!
 //It means the booker function which is child of the mother function(secureBooking) has still access to the passengerCount variable(this variable is still alive), although the secureBooking fiúnction is already executed and gone(is dead already!)!
 
 // Closure: VE attached to the function, exactly as it was at the time and place the function was created!
+
+// THANKS TO THE CLOSURE, A FUNCTION DOES NOT LOOSE CONNECTION TO VARIABLES THAT EXISTED AT THE FUNCTION BIRTHPLACE!
+
+// A CLOSURE GIVES A FUNCTION ACCESS TO ALL THE VARIABLES OF ITS PARENT FUNCTION, EVEN AFTER THAT PARENT FUNCTION HAS RETURENDE. THE FUNCTION JK`KEEPS A REFERENCE TO ITS OUTER SCOPE, WHICH PRESERVES THE SCOPE CHAIN THROUOUT TIME!
