@@ -335,3 +335,26 @@ console.log(addVAT_1(23)); // 28.29
 
 // OR CALL ALL OF THEM IN ONE GO:
 console.log(addTax_1(23)(100)); // 123
+
+console.log("------------Immediately Invoked Function Expressions---IIFE-----");
+
+// A function executes once and disappered!
+const runOnce = () => {
+  console.log("This will never run again!");
+};
+
+runOnce();
+
+runOnce(); // THIS IS NOT WHAT WE WANT, WE CAN RUN THIS AS MANY TIMES AS WE WANT!
+
+// THIS IS WHAT WE WANT => IIFE
+// FIRST VERSION:
+(() => {
+  console.log("This will never run again!");
+})();
+
+// SECOND VERSION: when we wrap it up in open and close Paranthesis =>(), function will be converted to an expression, it means we converted it from a statement to an expression!
+// TO CALL IT IMMEDIATELY, WE CAN ADD OPEN AND CLOSE PARANTHESIS AT THE END => ().
+(function () {
+  console.log("This will never run again!");
+})();
