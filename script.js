@@ -479,6 +479,9 @@ const boardPassenger = (n, wait) => {
 
 boardPassenger(180, 3);
 
+// LET'S NOW ALSO PROVE THAT THE CLOSURE HAS PRIORITY OVER SCOPE CHANGE: when we have two perGroup variables, the closure takes the one which is inside the function and doesn't take the Global one!
+const perGroup = 1000; // als Global variable
+
 // WE HAVE TO KEEP IN MIND THAT THIS CALLBACK FUNCTION HERE WAS EXECUTED COMPLETELY INDEPENDENTLY FROM boardPassenger FUNCTION! BUT STILL THE CALLBACK FUNCTION WAS ABLE TO USE ALL THE VARIABLES THAT WERE IN THE VARIABLE ENVIRONMENT IN WHICH IT WAS CREATED! THESE VARIABLES ARE n, perGroup AND wait! AND THIS IS A CLEAR SIGN THAT A CLOSURE WAS CREATED! and the closure is the only way in which this callback function here can have access to the variables that are defined in the boardPassenger function that has long finished execution!
 
 // AN EXAMPLE OF THE TIMER => AFTER 5 SECONDS WILL APPEAR THIS SENTENCE: "Hallo Bruder"
