@@ -425,3 +425,18 @@ console.dir(booker); // similar to the console.log() but we can get the function
 // A CLOSURE IS LIKE A BACKPACK THAT A FUNCTION CARRIES AROUND WHEREEVER IT GOES. THIS BACKPACK HAS ALL THE VARIABLES THAT WERE PRESENT IN THE ENVIRONMENT WHERE THE FUNCTION WAS CREATED!
 
 // WE DO NOT HAVE TO MANUALLY CREATE CLOSURES, THIS IS A JAVASCRIPT FEATURE THAT HAPPENS AUTOMATICALLY. WE CAN'T EVEN ACCESS CLOSED-OVER VARIABLES EXPLICITLY. A CLOSURE IS NOT A TANGIBLE JAVASCRIPT OBJECT!
+
+console.log("------------------MORE CLOSURE EXAMPLES----------------");
+
+let f;
+
+const g = function () {
+  const a = 23;
+  console.log(a);
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f(); // In this point of the execution, the variable environment of g() function is no longer there! but f() function closed-over that variable environment and therefore, it is able to access the a variable. We can say, the a variable is inside the backpack of the f function!
