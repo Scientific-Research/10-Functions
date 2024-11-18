@@ -459,3 +459,30 @@ console.dir(f);
 // The Closure has now the value of b and no longe has the value of a. When we reassign the new value to the f function, then the old closure basically disappears and now, the closure is b.
 
 // IT IS REALY TRUE THAT A CLOSURE ALWAYS MAKE SURE THAT A FUNCTION DOES NOT LOOSE THE CONNECTION TO THE VARIABLES TAHT WERE PRESENT AT ITS BIRTHPALCE! ALWAYS IT GONNA REMEBER THEM!
+
+// EVEN WHEN WE DON'T RETURN A FUNCTION, IT WOULD CREATE A CLOSURE TOO LIKE ABOVE EXAMPLE!
+
+// Example 2:
+// THIS IS A TIMER AND WE DON'T NEE TO RETURN A FUNCTION IN TIMER TO SEE A CLOSURE IN ACTION LIKE ABOVE EXAMPLE:
+const boardPassenger = (n, wait) => {
+  const perGroup = n / 3;
+
+  // Timeout function is like a IIFE, we have to add only this word at the beginning: setTimeout
+  // THE CODE INSIDE THE TIMER WILL BE EXECUTED AFTER WAIT msec!
+  setTimeout(() => {
+    console.log(`We are now boarding all ${n} passengers!`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers!`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds!`);
+};
+
+boardPassenger(180, 3);
+
+// WE HAVE TO KEEP IN MIND THAT THIS CALLBACK FUNCTION HERE WAS EXECUTED COMPLETELY INDEPENDENTLY FROM boardPassenger FUNCTION! BUT STILL THE CALLBACK FUNCTION WAS ABLE TO USE ALL THE VARIABLES THAT WERE IN THE VARIABLE ENVIRONMENT IN WHICH IT WAS CREATED! THESE VARIABLES ARE n, perGroup AND wait! AND THIS IS A CLEAR SIGN THAT A CLOSURE WAS CREATED! and the closure is the only way in which this callback function here can have access to the variables that are defined in the boardPassenger function that has long finished execution!
+
+// AN EXAMPLE OF THE TIMER => AFTER 5 SECONDS WILL APPEAR THIS SENTENCE: "Hallo Bruder"
+// THE ARRAOW FUNCTION HERE IS A CALLBACK FUNCTION AND WILL BE CALLED LATER WHICH MEANS LITERALLY CALLBACK AFTER 5 SEC!
+// setTimeout(() => {
+//   console.log("Hallo Bruder");
+// }, 5000);
