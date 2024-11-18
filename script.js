@@ -457,3 +457,5 @@ h();
 f(); // 1554 => This proves that the second f function also close-over the variable environment of h and therefore, it is able to access the b variable.
 console.dir(f);
 // The Closure has now the value of b and no longe has the value of a. When we reassign the new value to the f function, then the old closure basically disappears and now, the closure is b.
+
+// IT IS REALY TRUE THAT A CLOSURE ALWAYS MAKE SURE THAT A FUNCTION DOES NOT LOOSE THE CONNECTION TO THE VARIABLES TAHT WERE PRESENT AT ITS BIRTHPALCE! ALWAYS IT GONNA REMEBER THEM!
